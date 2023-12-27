@@ -2,19 +2,18 @@
   <!-- Your HTML template goes here -->
   <div>
     <h2>Ứng Dụng Bán Quần Áo</h2>
-    <a href="/add">Thêm Sản Phẩm</a>
-
+    <div class="addd"><a class="add" href="/add">Thêm Sản Phẩm</a></div>
     <table>
       <thead>
-        <tr>
+        <tr class="bg-body-secondary">
           <th>ID</th>
-          <th>Name</th>
-          <th>Image</th>
-          <th>description</th>
-          <th>price</th>
-          <th>stock</th>
-          <th>category</th>
-          <th>brand</th>
+          <th>Tên</th>
+          <th>Ảnh</th>
+          <th>Tiêu đề</th>
+          <th>Giá</th>
+          <th>Cổ phần</th>
+          <th>Loại</th>
+          <th>thương hiệu</th>
           <th>Xóa</th>
           <th>Sửa</th>
         </tr>
@@ -97,6 +96,7 @@ export default {
 
 <style scoped>
 table {
+  margin-top: 20px;
   border-collapse: collapse;
   overflow: hidden;
 }
@@ -106,6 +106,14 @@ td {
   padding: 10px;
   border: 1px solid #ddd; /* Để giữ cấu trúc của bảng */
 }
+.add {
+  margin: 10px;
+  background-color: aqua;
+  padding: 10px;
+  border-radius: 4px;
+  color: black;
+}
+
 .xoa {
   background-color: red;
 }
