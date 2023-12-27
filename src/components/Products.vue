@@ -7,16 +7,18 @@
       :key="product.id"
       @click="handleProductClick(product)"
     >
-      <div class="card" style="width: 18rem">
-        <img :src="product.img" alt=" Image" />
-        <div class="card-body">
-          <h5 class="card-title">{{ product.name }}</h5>
-          <p class="card-text">
-            {{ product.price }}
-          </p>
-          <a href="#" class="btn btn-primary">Add to card</a>
-        </div>
-      </div>
+      <router-link :to="'/product/:id'">
+        <div class="card" style="width: 18rem">
+          <img :src="product.img" alt=" Image" />
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">
+              {{ product.price }}
+            </p>
+            <a href="#" class="btn btn-primary">Add to card</a>
+          </div>
+        </div></router-link
+      >
     </div>
   </div>
 </template>
@@ -44,7 +46,7 @@ export default {
       }
     },
     handleProductClick(product) {
-      // Xử lý khi sản phẩm được nhấp vào
+      this.$router.push({ path: `/product/${product.id}` });
     },
   },
 };
