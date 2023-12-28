@@ -1,26 +1,6 @@
 {
   "product": [
     {
-      "id": "3",
-      "name": "áo55555",
-      "img": "https://bizweb.dktcdn.net/100/415/697/products/ahu2keci-1-iirh-hinh-mat-truoc-01.jpg?v=1657108771117",
-      "description": "Thành phần vải: 100% Cotton Kiểu dáng áo thun phom suông năng độngCổ tròn, tay ngắn đơn giảnThiết kế lấy cảm hứng từ hiệp hội bóng chày MLBHọa tiết ...",
-      "price": "1000000",
-      "stock": "100",
-      "category": "Áo",
-      "brand": "Vải"
-    },
-    {
-      "id": "7",
-      "name": "áo55555",
-      "img": "https://bizweb.dktcdn.net/100/415/697/products/ahu2keci-1-iirh-hinh-mat-truoc-01.jpg?v=1657108771117",
-      "description": "Thành phần vải: 100% Cotton Kiểu dáng áo thun phom suông năng độngCổ tròn, tay ngắn đơn giảnThiết kế lấy cảm hứng từ hiệp hội bóng chày MLBHọa tiết ...",
-      "price": "1000000",
-      "stock": "100",
-      "category": "Áo",
-      "brand": "Vải"
-    },
-    {
       "id": "1",
       "name": "áo55555",
       "img": "https://bizweb.dktcdn.net/100/415/697/products/ahu2keci-1-iirh-hinh-mat-truoc-01.jpg?v=1657108771117",
@@ -31,34 +11,15 @@
       "brand": "Vải"
     },
     {
-      "id": "2",
-      "name": "áo55555",
-      "img": "https://bizweb.dktcdn.net/100/415/697/products/ahu2keci-1-iirh-hinh-mat-truoc-01.jpg?v=1657108771117",
-      "description": "Thành phần vải: 100% Cotton Kiểu dáng áo thun phom suông năng độngCổ tròn, tay ngắn đơn giảnThiết kế lấy cảm hứng từ hiệp hội bóng chày MLBHọa tiết ...",
-      "price": "1000000",
-      "stock": "100",
-      "category": "Áo",
-      "brand": "Vải"
-    },
-    {
-      "name": "ccccccccccc",
-      "price": 2222,
-      "description": "cád",
-      "img": "",
-      "stock": "đắ",
-      "category": "2222",
-      "brand": "đawa",
-      "id": "Y_33het"
-    },
-    {
-      "name": "fggggg",
-      "price": 4444,
-      "description": "eeeeeeeeee",
-      "img": "https://picsum.photos/200/200",
-      "stock": "đắ",
-      "category": "dấd",
-      "brand": "đawa",
-      "id": "H01fHfU"
+      "id" : "2",
+      "name": "Quần Gucci",
+      "price": 500000,
+      "description": "đẹp vãi bìu ",
+      "img": "https://tse1.mm.bing.net/th?id=OIP.BZUa01vCbqBlgOzk430yUAHaHa&pid=Api&P=0&h=180",
+      "stock": "dsdf",
+      "category": "sdfsdf",
+      "brand": "Guccci",
+      "id": "WmuobhH"
     }
   ],
   "user": [
@@ -76,6 +37,14 @@
       "userName": "kamisato ayaka",
       "password": "<PASSWORD>",
       "email": "<EMAIL>"
+    }
+  ],
+  "cart": [
+    {
+      "id": "1",
+      "name": "áo55555",
+      "price": "1000000",
+      "quantity": 1
     }
   ]
 }
