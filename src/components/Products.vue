@@ -101,37 +101,97 @@
     </div>
   </nav>
   <div v-if="isopen">
-    <table style="justify-content: center; align-items: center">
-      <thead>
-        <tr>
-          <th>Tên</th>
-          <th>Số Lượng</th>
-          <th>Giá</th>
-          <th>Thành Tiền</th>
-          <th>Xóa</th>
-          <th>Giảm Số Lượng</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="item in cartList" :key="item.id">
-          <td>{{ item.name }}</td>
-          <td>{{ item.quantity }}</td>
-          <td>{{ item.price }}</td>
-          <td>{{ formatPrice(item.price * item.quantity) }}</td>
-          <td>
-            <button class="xoa" @click="deleteCart(item.id)">
-              <i class="bi bi-trash"></i>
-            </button>
-          </td>
-          <td>
-            <button @click="updateSoLuongCart(item)">
-              <i class="bi bi-dash"></i>
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <button @click="closeCartModal"><i class="bi bi-close"></i>Đóng</button>
+    <section class="vh-100" style="background-color: #fdccbc">
+      <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col">
+            <p>
+              <span class="h2">Shopping Cart </span
+              ><span class="h4">(1 item in your cart)</span>
+            </p>
+
+            <div class="card mb-4">
+              <div class="card-body p-4">
+                <div
+                  class="row align-items-center"
+                  v-for="item in cartList"
+                  :key="item.id"
+                >
+                  <div class="col-md-2">
+                    <img
+                      :src="item.img"
+                      alt="Image"
+                      style="max-width: 100%; height: auto"
+                    />
+                  </div>
+                  <div class="col-md-2 d-flex justify-content-center">
+                    <div>
+                      <p class="small text-muted mb-4 pb-2">Name</p>
+                      <p class="lead fw-normal mb-0">{{ item.name }}</p>
+                    </div>
+                  </div>
+
+                  <div class="col-md-2 d-flex justify-content-center">
+                    <div>
+                      <p class="small text-muted mb-4 pb-2">Quantity</p>
+                      <p class="lead fw-normal mb-0">{{ item.quantity }}</p>
+                      <button @click="decreaseQuantity(item)">-</button>
+                      <button @click="increaseQuantity(item)">+</button>
+                    </div>
+                  </div>
+                  <div class="col-md-2 d-flex justify-content-center">
+                    <div>
+                      <p class="small text-muted mb-4 pb-2">Price</p>
+                      <p class="lead fw-normal mb-0">
+                        {{ formatPriceVND(item.price) }}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="col-md-2 d-flex justify-content-center">
+                    <div>
+                      <p class="small text-muted mb-4 pb-2">Total</p>
+                      <p class="lead fw-normal mb-0">
+                        {{ formatPriceVND(item.price * item.quantity) }}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-2 d-flex justify-content-center">
+                    <div>
+                      <button @click="deleteCart(item.id)">Xóa</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-5">
+              <div class="card-body p-4">
+                <div class="float-end">
+                  <p class="mb-0 me-5 d-flex align-items-center">
+                    <span class="small text-muted me-2">Order total:</span>
+                    <span class="lead fw-normal">{{
+                      formatPriceVND(orderTotal)
+                    }}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-end">
+              <button
+                @click="closeCartModal"
+                type="button"
+                class="btn btn-light btn-lg me-2"
+              >
+                Đóng
+              </button>
+              <button type="button" class="btn btn-primary btn-lg">Mua</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
   <h2>Sản Phẩm</h2>
   <a href="admin/products">Thêm Sản Phẩm</a>
@@ -178,7 +238,7 @@
 
 <script>
 import axios from "axios";
-import Nav from "./Nav.vue";
+
 import Footer from "./footer.vue";
 import _ from "lodash";
 // import { BButton } from "bootstrap-vue";
@@ -187,6 +247,12 @@ export default {
     Footer,
   },
   computed: {
+    orderTotal() {
+      return this.cartList.reduce(
+        (total, item) => total + item.price * item.quantity,
+        0
+      );
+    },
     cartTotalQuantity() {
       return this.cartList.reduce((total, item) => total + item.quantity, 0);
     },
@@ -235,9 +301,30 @@ export default {
         console.error("Lỗi khi xóa sản phẩm:", error);
       }
     },
+    formatPriceVND(price) {
+      // Sử dụng Intl.NumberFormat để định dạng số và thêm đơn vị tiền tệ VNĐ
+      const formatter = new Intl.NumberFormat("vi-VN", {
+        style: "currency",
+        currency: "VND",
+      });
 
+      return formatter.format(price);
+    },
     formatPrice(value) {
-      // Sử dụng toFixed(2) để giới hạn số lượng chữ số sau dấu thập phân thành 2
+      return (value || 0).toFixed(2);
+    },
+    increaseQuantity(item) {
+      item.quantity++;
+      this.updateProductInCart(item);
+    },
+
+    decreaseQuantity(item) {
+      if (item.quantity > 1) {
+        item.quantity--;
+        this.updateProductInCart(item);
+      }
+    },
+    formatPrice(value) {
       return (value || 0).toFixed(2);
     },
 
@@ -246,14 +333,9 @@ export default {
     },
 
     open() {
-      // Lưu lại todo đang được sửa để cập nhật sau khi người dùng thay đổi thông tin
       this.isopen = true;
     },
     handleSearch() {
-      // Xử lý tìm kiếm theo từ khóa ngay khi người dùng nhập
-      // Có thể thực hiện debounce để tránh gọi quá nhiều request nếu người dùng nhập nhanh
-      // Ví dụ sử dụng lodash debounce:
-      // import _ from "lodash";
       this.debouncedSearch();
     },
 
@@ -264,21 +346,17 @@ export default {
         );
 
         if (filteredProducts.length > 0) {
-          // Nếu có ít nhất một sản phẩm thỏa mãn điều kiện tìm kiếm, sử dụng sản phẩm đầu tiên
           this.products = [filteredProducts[0]];
         } else {
-          // Nếu không có sản phẩm nào thỏa mãn điều kiện tìm kiếm, có thể hiển thị thông báo hoặc làm gì đó khác
           this.products = [];
         }
       } else {
-        // Nếu không có từ khóa tìm kiếm, hiển thị tất cả sản phẩm
         this.fetchProducts();
       }
     },
 
     async updateProductInCart(products) {
       try {
-        // Sử dụng axios.put để cập nhật thông tin cho sản phẩm cụ thể
         await axios.put(`http://localhost:3000/cart/${products.id}`, products);
 
         console.log("Sản phẩm đã được cập nhật trong giỏ hàng:", products);
@@ -323,6 +401,7 @@ export default {
           name: products.name,
           price: products.price,
           quantity: 1,
+          img: products.img,
         };
         const response = await axios.post(
           "http://localhost:3000/cart",

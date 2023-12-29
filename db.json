@@ -40,16 +40,18 @@
   ],
   "cart": [
     {
-      "id": "1",
-      "name": "áo55555",
-      "price": "1000000",
-      "quantity": 1
-    },
-    {
       "id": "WmuobhH",
       "name": "Quần Gucci",
       "price": 500000,
-      "quantity": 1
+      "quantity": 5,
+      "img": "https://tse1.mm.bing.net/th?id=OIP.BZUa01vCbqBlgOzk430yUAHaHa&pid=Api&P=0&h=180"
+    },
+    {
+      "id": "1",
+      "name": "áo55555",
+      "price": 10000003,
+      "quantity": 3,
+      "img": "https://bizweb.dktcdn.net/100/415/697/products/ahu2keci-1-iirh-hinh-mat-truoc-01.jpg?v=1657108771117"
     }
   ]
 }
