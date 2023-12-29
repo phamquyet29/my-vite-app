@@ -1,130 +1,114 @@
 <template>
-  <div class="container">
-    <a href="/" class="back-link">← Quay lại danh sách sản phẩm</a>
-    <div class="product-form">
-      <h2>Thêm Sản Phẩm</h2>
-      <form @submit.prevent="submitForm" class="form">
-        <div class="form-group">
-          <label for="productName">Tên Sản Phẩm</label>
-          <input type="text" v-model="productName" id="productName" class="form-control" required />
-        </div>
 
-        <div class="form-group">
-          <label for="productImage">Ảnh Sản Phẩm</label>
-          <input type="text" v-model="productImage" id="productImage" class="form-control" required />
-        </div>
+  <div class="product-form">
+    <h2>Thêm Sản Phẩm</h2>
+    <form class="border p-5 bg-secondary" @submit.prevent="submitForm">
+      <div class="mb-3">
+        <label
+          for="exampleFormControlInput1"
+          class="form-label text-white fw-bold"
+          >Tên sản phẩm</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          v-model="productName"
+          id="productName"
+          required
+          placeholder="Tên sản phẩm"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label text-white"
+          >Ảnh sản phẩm</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          v-model="productImage"
+          id="productImage"
+          required
+          placeholder="Ảnh sản phẩm"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label text-white"
+          >Mô Tả Sản Phẩm:</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          v-model="productDescription"
+          id="productDescription"
+          required
+          placeholder="Mô Tả Sản Phẩm:"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label text-white"
+          >Giá:</label
+        >
+        <input
+          type="number"
+          class="form-control"
+          v-model="productPrice"
+          id="productPrice"
+          required
+          placeholder="Giá"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label text-white"
+          >Cổ phần:</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          v-model="productStock"
+          id="productStock"
+          required
+          placeholder="Cổ phần"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label text-white"
+          >Loại vải:</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          v-model="productCategory"
+          id="productCategory"
+          required
+          placeholder="Loại vải"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label text-white"
+          >Thương hiệu:</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          v-model="productBrand"
+          id="productBrand"
+          required
+          placeholder="Thương hiệu"
+        />
+      </div>
 
-        <div class="form-group">
-          <label for="productDescription">Mô Tả Sản Phẩm</label>
-          <textarea
-            v-model="productDescription"
-            id="productDescription"
-            rows="3"
-            class="form-control"
-            required
-          ></textarea>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="productPrice">Giá</label>
-            <input
-              type="number"
-              v-model="productPrice"
-              id="productPrice"
-              class="form-control"
-              required
-            />
-          </div>
-
-          <div class="form-group col-md-6">
-            <label for="productStock">Stock</label>
-            <input type="text" v-model="productStock" id="productStock" class="form-control" required />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="productCategory">Category</label>
-            <input
-              type="text"
-              v-model="productCategory"
-              id="productCategory"
-              class="form-control"
-              required
-            />
-          </div>
-
-          <div class="form-group col-md-6">
-            <label for="productBrand">Brand</label>
-            <input type="text" v-model="productBrand" id="productBrand" class="form-control" required />
-          </div>
-        </div>
-
+      <div class="">
+        <button class="btn btn-primary me-5">
+          <a class="text-light" href="/">List Sản Phẩm</a>
+        </button>
         <button type="submit" class="btn btn-success">Thêm Sản Phẩm</button>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
 </template>
 
-<style>
-.container {
-  max-width: 1300px;
-  margin: auto;
-  padding: 40px;
-}
-
-.product-form {
-  background-color: #f6f9ff;
-  padding: 20px;
-  border: 1px solid #ced4da;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-  color: #343a40;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-label {
-  color: #495057;
-}
-
-.form-control {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ced4da;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-.form-row {
-  display: flex;
-  justify-content: space-between;
-}
-
-.btn {
-  background-color: #28a745;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  width: 100%;
-}
-
-.btn:hover {
-  background-color: #218838;
-}
-</style>
-
 <script>
 import axios from "axios";
-
 export default {
   data() {
     return {
@@ -150,15 +134,30 @@ export default {
       };
 
       try {
+
+        // Gửi POST request đến API Server
+
         const response = await axios.post(
           "http://localhost:3000/product",
           newProduct
         );
 
+
+        // Xử lý response nếu cần
         console.log("Sản phẩm đã được thêm:", response.data);
 
-        this.resetForm();
+        // Reset form sau khi thêm sản phẩm thành công
+        this.productName = "";
+        this.productPrice = null;
+        this.productDescription = "";
+        this.productImage = "";
+        this.productStock = "";
+        this.productCategory = "";
+        this.productBrand = "";
+        this.$router.push("/products");
       } catch (error) {
+        // Xử lý lỗi nếu có
+
         console.error("Lỗi khi thêm sản phẩm:", error);
       }
     },

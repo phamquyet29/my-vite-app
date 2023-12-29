@@ -1,12 +1,8 @@
 <template>
-  <!-- Your HTML template goes here -->
-  <div>
-    <h2>Ứng Dụng Bán Quần Áo</h2>
+  <h2>Sản Phẩm</h2>
+  <a href="/products">Thêm Sản Phẩm</a>
 
-    <div class="addd"><a class="add" href="/add">Thêm Sản Phẩm</a></div>
-    <br>
-    <a href="/">List Home Sản Phẩm</a>
-    <!-- <div>
+  <div>
       <br>
       <Button @click="open()"
               ><i class="bi bi-cart"></i>
@@ -47,65 +43,39 @@
   </table>
   <button @click="closeCartModal"><i class="bi bi-close"></i>Đóng</button>
 </div>
-  </div> -->
+  </div>
 
-    <table>
-      <thead>
-        <tr class="bg-body-secondary">
-          <th>ID</th>
 
-          <th>Tên</th>
-          <th>Ảnh</th>
-          <th>Tiêu đề</th>
-          <th>Giá</th>
-          <th>Cổ phần</th>
-          <th>Loại</th>
-          <th>thương hiệu</th>
-          <th>Xóa</th>
-          <th>Sửa</th>
-          <!-- <th>Giỏ Hàng</th> -->
+  <div class="d-flex flex-wrap">
+    <div
+      class="d-flex flex-row mb-3 p-1"
+      v-for="product in products"
+      :key="product.id"
     
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="product in products" :key="product.id">
-          <td>{{ product.id }}</td>
-          <td>{{ product.name }}</td>
-          <td>
-            <img
-              style="width: 100px; height: 100px"
-              :src="product.img"
-              alt=""
-            />
-          </td>
-          <td>{{ product.description }}</td>
-          <td>{{ product.price }}</td>
-          <td>{{ product.stock }}</td>
-          <td>{{ product.category }}</td>
-          <td>{{ product.brand }}</td>
-          <!-- <td>
-<button @click="addToCart(product)">Thêm vào giỏ hàng</button>
-</td> -->
-          <td>
-            <Button class="xoa" @click="deleteProduct(product.id)"
-              ><i class="bi bi-trash"></i
-            ></Button>
-          </td>
-          <td>
-            <Button class="btn-warning">
-              <router-link :to="`/${product.id}/edit`">
-                <i class="bi bi-pencil"></i>
-              </router-link>
-            </Button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    >
+      <!-- <router-link :to="'/product/:id'"> -->
+        <div class="card" style="width: 18rem">
+          <img :src="product.img" alt=" Image"   @click="handleProductClick(product)" />
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">
+              {{ product.price }}
+            </p>
+            <!-- <a href="#" class="btn btn-primary">Add to card</a> -->
+          </div>
+          <button class="btn btn-danger text-uppercase mr-2 px-4" @click="addToCart(product)">Thêm vào giỏ hàng</button>
+        </div>
+      <!-- </router-link> -->
+    
+      
+    </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+
+
 
 export default {
 
@@ -118,8 +88,8 @@ export default {
 
   data() {
     return {
-      isopen : false,
       products: [],
+      isopen : false,
       cart: [],
       cartList:[],
     };
@@ -127,8 +97,10 @@ export default {
   mounted() {
     this.fetchProducts();
     this.fetchCart();
+
   },
   methods: {
+
 
     async deleteCart(cartID) {
       try {
@@ -212,6 +184,7 @@ export default {
         quantity: 1,
       };
       const response = await axios.post('http://localhost:3000/cart', newProduct);
+      this.fetchCart();
     }
   },
     // giỏ hàng 
@@ -225,35 +198,23 @@ export default {
       }
     },
 
+
+
     async fetchProducts() {
       try {
         const response = await axios.get("http://localhost:3000/product");
-        this.products = response.data;
+        console.log("Data:", response.data);
+        this.products = response.data; // Lưu ý sự thay đổi ở đây
       } catch (error) {
-        console.error("Error fetching products:", error);
+        console.error("Lỗi khi tải sản phẩm:", error);
       }
     },
-    async deleteProduct(productId) {
-      try {
-        const userConfirmed = window.confirm("Bạn có muốn xoá không ?");
-
-        if (userConfirmed) {
-          await axios.delete(`http://localhost:3000/product/${productId}`);
-
-          this.products = this.products.filter(
-            (product) => product.id !== productId
-          );
-
-          console.log("Sản phẩm đã được xóa");
-        }
-      } catch (error) {
-        console.error("Lỗi khi xóa sản phẩm:", error);
-      }
+    handleProductClick(product) {
+      this.$router.push({ path: `/product/${product.id}` });
     },
   },
 };
 </script>
-
 <style scoped>
 table {
   margin-top: 20px;
@@ -296,3 +257,4 @@ td:last-child {
 }
 /* Your component-specific styles go here */
 </style>
+
