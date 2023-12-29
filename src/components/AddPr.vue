@@ -1,4 +1,5 @@
 <template>
+
   <div class="product-form">
     <h2>Thêm Sản Phẩm</h2>
     <form class="border p-5 bg-secondary" @submit.prevent="submitForm">
@@ -108,7 +109,6 @@
 
 <script>
 import axios from "axios";
-
 export default {
   data() {
     return {
@@ -123,7 +123,6 @@ export default {
   },
   methods: {
     async submitForm() {
-      // Dữ liệu sản phẩm từ form
       const newProduct = {
         name: this.productName,
         price: this.productPrice,
@@ -135,11 +134,14 @@ export default {
       };
 
       try {
+
         // Gửi POST request đến API Server
+
         const response = await axios.post(
           "http://localhost:3000/product",
           newProduct
         );
+
 
         // Xử lý response nếu cần
         console.log("Sản phẩm đã được thêm:", response.data);
@@ -155,8 +157,18 @@ export default {
         this.$router.push("/");
       } catch (error) {
         // Xử lý lỗi nếu có
+
         console.error("Lỗi khi thêm sản phẩm:", error);
       }
+    },
+    resetForm() {
+      this.productName = "";
+      this.productPrice = null;
+      this.productDescription = "";
+      this.productImage = "";
+      this.productStock = "";
+      this.productCategory = "";
+      this.productBrand = "";
     },
   },
 };

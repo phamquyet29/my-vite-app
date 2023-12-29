@@ -2,5 +2,10 @@
   <router-view></router-view>
 </template>
 
-<script></script>
+
+<script>
+import Nav from "./components/Nav.vue";
+</script>
+
 <style scoped></style>
+
