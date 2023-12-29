@@ -12,14 +12,14 @@ import SignUp from '../components/SignUp.vue';
 import Home from '../components/Home.vue';
 
 const routes = [
-  { path: "/", component: Products },
+  { name :"Home", path: "/home", component: Products },
   { path: "/products", component: ListPr },
   { path: "/add", component: AddPr },
   { path: "/:id/edit", component: EditPr },
   { path: "/product/:id", component: ProductDetail, name: "ProductDetail" },
-   { name:"Login",path: '/login', component: Login },
+   { name:"Login",path: '/', component: Login },
   { name:"SignUp", path: '/signup', component: SignUp },
-  { name:"Home", path: '/', component: Home }
+
 
 ];
 

@@ -44,10 +44,10 @@ export default {
         this.loginError = "Định dạng email không hợp lệ.";
         return;
       }
-
+   //   this.$router.push({ name: "Home" });
       try {
         const response = await axios.get(
-          `http://localhost:3000/users?email=${this.email}&password=${this.password}`
+          `http://localhost:3000/user?email=${this.email}&password=${this.password}`
         );
 
         if (response.status === 200 && response.data.length > 0) {

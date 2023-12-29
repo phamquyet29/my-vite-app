@@ -24,32 +24,19 @@
   "user": [
     {
       "userName": "hoangcontien",
-      "password": "<PASSWORD>",
-      "email": "<EMAIL>"
+      "password": "123",
+      "email": "hieu@gmail.com"
     },
     {
       "userName": "admin",
-      "password": "<PASSWORD>",
-      "email": "<EMAIL>"
+      "password": "123",
+      "email": "quyet@gmail.com"
     },
     {
       "userName": "kamisato ayaka",
-      "password": "<PASSWORD>",
-      "email": "<EMAIL>"
+      "password": "123",
+      "email": "thang@gmail.com"
     }
   ],
-  "cart": [
-    {
-      "id": "1",
-      "name": "áo55555",
-      "price": "1000000",
-      "quantity": 5
-    },
-    {
-      "id": "WmuobhH",
-      "name": "Quần Gucci",
-      "price": 500000,
-      "quantity": 8
-    }
-  ]
+  "cart": []
 }
