@@ -11,15 +11,14 @@
       "brand": "Vải"
     },
     {
-      "id" : "2",
+      "id": "WmuobhH",
       "name": "Quần Gucci",
       "price": 500000,
       "description": "đẹp vãi bìu ",
       "img": "https://tse1.mm.bing.net/th?id=OIP.BZUa01vCbqBlgOzk430yUAHaHa&pid=Api&P=0&h=180",
       "stock": "dsdf",
       "category": "sdfsdf",
-      "brand": "Guccci",
-      "id": "WmuobhH"
+      "brand": "Guccci"
     }
   ],
   "user": [
@@ -44,7 +43,13 @@
       "id": "1",
       "name": "áo55555",
       "price": "1000000",
-      "quantity": 1
+      "quantity": 5
+    },
+    {
+      "id": "WmuobhH",
+      "name": "Quần Gucci",
+      "price": 500000,
+      "quantity": 8
     }
   ]
 }

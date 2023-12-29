@@ -4,9 +4,9 @@
     <h2>Ứng Dụng Bán Quần Áo</h2>
 
     <div class="addd"><a class="add" href="/add">Thêm Sản Phẩm</a></div>
-
-    <a href="/add">Thêm Sản Phẩm</a>
-    <div>
+    <br>
+    <a href="/">List Home Sản Phẩm</a>
+    <!-- <div>
       <br>
       <Button @click="open()"
               ><i class="bi bi-cart"></i>
@@ -45,9 +45,9 @@
       </tr>
     </tbody>
   </table>
-  <button @click="closeCartModal"><i class="bi bi-close"></i></button>
+  <button @click="closeCartModal"><i class="bi bi-close"></i>Đóng</button>
 </div>
-  </div>
+  </div> -->
 
     <table>
       <thead>
@@ -61,9 +61,10 @@
           <th>Cổ phần</th>
           <th>Loại</th>
           <th>thương hiệu</th>
-
           <th>Xóa</th>
           <th>Sửa</th>
+          <!-- <th>Giỏ Hàng</th> -->
+    
         </tr>
       </thead>
       <tbody>
@@ -82,9 +83,9 @@
           <td>{{ product.stock }}</td>
           <td>{{ product.category }}</td>
           <td>{{ product.brand }}</td>
-          <td>
+          <!-- <td>
 <button @click="addToCart(product)">Thêm vào giỏ hàng</button>
-</td>
+</td> -->
           <td>
             <Button class="xoa" @click="deleteProduct(product.id)"
               ><i class="bi bi-trash"></i
