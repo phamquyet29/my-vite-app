@@ -10,9 +10,9 @@ import ProductDetail from "../components/ProductDetail.vue";
 
 const routes = [
   { path: "/", component: Products },
-  { path: "/products", component: ListPr },
-  { path: "/add", component: AddPr },
-  { path: "/:id/edit", component: EditPr },
+  { path: "/admin/products", component: ListPr },
+  { path: "/admin/add", component: AddPr },
+  { path: "/admin/:id/edit", component: EditPr },
   { path: "/product/:id", component: ProductDetail, name: "ProductDetail" },
 ];
 

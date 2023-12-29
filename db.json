@@ -5,7 +5,7 @@
       "name": "áo55555",
       "img": "https://bizweb.dktcdn.net/100/415/697/products/ahu2keci-1-iirh-hinh-mat-truoc-01.jpg?v=1657108771117",
       "description": "Thành phần vải: 100% Cotton Kiểu dáng áo thun phom suông năng độngCổ tròn, tay ngắn đơn giảnThiết kế lấy cảm hứng từ hiệp hội bóng chày MLBHọa tiết ...",
-      "price": "1000000",
+      "price": 10000003,
       "stock": "100",
       "category": "Áo",
       "brand": "Vải"
@@ -43,13 +43,13 @@
       "id": "1",
       "name": "áo55555",
       "price": "1000000",
-      "quantity": 5
+      "quantity": 1
     },
     {
       "id": "WmuobhH",
       "name": "Quần Gucci",
       "price": 500000,
-      "quantity": 8
+      "quantity": 1
     }
   ]
 }
